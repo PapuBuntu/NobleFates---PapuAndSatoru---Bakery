@@ -1,0 +1,19 @@
+{
+    id Bakery.Research
+    type ResearchEntry
+    abstract
+    
+    verb = to Craft
+    skill = Crafting
+}
+{
+    id Bakery.Research.Bakery
+    type ResearchEntry
+    inherit Bakery.Research
+
+    name = Bakery
+    description = Unlocks Bakery Items
+    category = true
+    tierOffset = 0
+    free = false
+}
