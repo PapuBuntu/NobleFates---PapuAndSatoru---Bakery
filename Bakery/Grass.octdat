@@ -1,0 +1,8 @@
+{
+    id Oct.Foliage.DenseGrass
+    type FoliageType
+
+    cutItemType = <Bakery.Items.WheatSeeds>
+	healthPerCutItem = 2.5
+    healthPerCutMultiplier = 3
+}

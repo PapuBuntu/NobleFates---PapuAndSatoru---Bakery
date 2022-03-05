@@ -1,0 +1,61 @@
+{
+	id Bakery.Items.Wheat
+	type StackedItemType
+	inherit Oct.Items.Stackable
+	
+	name = Wheat
+    defectiveNoun = true
+	itemClass = StackedItem
+	category = <Oct.Items.Categories.Resources>
+	stackLimit = 50
+	indoorDecayAfter = 92y
+	outdoorDecayAfter = 50y
+	dropItemType = Wheat Seeds
+	dropItemChance = .05
+	carryChance = 1.5
+	value = 25
+	dropSound = OrganicDrop
+	
+	prefab = 
+	{
+		type Prefab
+		path = /Assets/Crops/Wheat/Wheat.fbx
+		name = Wheat
+        behavior = StackedItemBehavior
+		scale = 1
+	}
+	
+	salvageAt = <Katsu.KSTable>
+
+	salvage =
+	[
+		{
+			type ExplicitItemSalvageComponent
+			itemType = <Bakery.Items.WheatSeeds>
+			count = 3
+		}
+	]
+}
+{
+	id Bakery.Items.WheatSeeds
+	type StackedItemType
+	inherit Oct.Items.Stackable
+
+	name = Wheat Seeds
+	itemClass = StackedItem
+	category = <Oct.Items.Categories.Seeds>
+	stackLimit = 50
+    indoorDecayAfter = 92y
+	outdoorDecayAfter = 50y
+	carryChance = .5
+	value = 25
+	dropSound = OrganicDrop
+	
+	prefab =
+	{
+		type Prefab
+		path = /Assets/Crops/Wheat/Seeds.fbx
+		name = Wheat Seeds
+        behavior = StackedItemBehavior
+	}
+}
