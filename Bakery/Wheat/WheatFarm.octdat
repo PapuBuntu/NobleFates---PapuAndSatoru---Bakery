@@ -124,22 +124,20 @@
                 type FruitStage
                 name = Unripe
                 ripeness = .5
-                yield = 2
+                yield = .5
                 itemType = <Bakery.Items.Wheat>
-                color = color(0.5055, .75, 0.33825)
             }
             {
                 type FruitStage
                 name = Ripe
                 ripeness = 1
-                yield = 4
+                yield = 1
                 itemType = <Bakery.Items.Wheat>
-                color = color(.75, 0.49425, 0)
             }
         ]
      
-        yield = 10
-        ripenessPerDay = .25
+        yield = 7
+        ripenessPerDay = .3
         dieAfterYield = true
     }
 }
@@ -149,9 +147,10 @@
     inherit Bakery.Research.Farm
 
     name = Wheat
-    description = Can Grow Wheat
+    description = Able to Grow Wheat
     category = false
     tierOffset = 2
     prerequisite = <Bakery.Research.Bakery>
+    tooltipProvider = <Bakery.Farm.Wheat>
     free = false
 }

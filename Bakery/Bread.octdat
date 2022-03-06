@@ -114,8 +114,8 @@
     inherit Bakery.Research
 	
 	name = Bread
-	prerequisite = <Bakery.Research.Bakery>
+	prerequisite = <Bakery.Research.Flour>
     tooltipProvider = <Bakery.Recipes.Bread>
-	tierOffset = 4
+	tierOffset = 0
 	priority = 1
 }

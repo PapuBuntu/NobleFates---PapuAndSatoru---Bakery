@@ -1,0 +1,101 @@
+{
+	id Bakery.Items.Sandwich
+	type StackedFoodItemType
+	inherit Oct.Items.Stackable
+	
+	name = Sandwich
+    defectiveNoun = true
+	itemClass = StackedItem
+	category = <Oct.Items.Categories.Food>
+	stackLimit = 25
+    indoorDecayAfter = 28d
+	outdoorDecayAfter = 22d
+	value = 50
+	carryChance = .5
+    drink = false
+    serfsAllowed = false
+    prisonersAllowed = false    
+    cookingAllowed = false
+	showCount = true
+    subject = true
+	dropSound = CommonDrop
+
+	prefab = 
+	{
+		type Prefab
+		path = /Assets/Sandwich.fbx
+		name = Sandwich
+        behavior = StackedItemBehavior
+	}
+
+	consumableModifiers = 
+	[
+		{
+			type StackedConsumableStatModifier
+			name = Food
+			delta = 100
+		}
+		{
+			type StackedConsumableStatModifier
+			name = Comfort
+			delta = 15
+		}
+	]
+}
+{
+    id Bakery.Recipes.Sandwich
+	type MealRecipe
+	
+    type = <Bakery.Items.Sandwich>
+    ingredientCount = 2
+	researchEntry = <Bakery.Research.Sandwich>
+    commandType = CookItemCommand
+	craftingLoop = CookingLoop
+    canFilterIngredients = true
+	yield = 1
+    batch = 1
+
+	ingredients =
+	[
+		{
+			type NutritionRecipeIngredient
+			filter = 
+            {
+                type ItemFilter
+                name = Ingredients
+                included =
+                [
+                    <Oct.Items.Categories.Food.Meat>
+                ]
+                excluded =
+                [
+                    <Oct.Items.Categories.Food.Meals>
+                ]
+            }
+            sources = 1
+			nutrition = 2
+		}
+		{
+			type ItemRecipeIngredient
+			filter = <Bakery.Items.Bread>
+			count = 1
+		}
+	]
+
+    craftAt = 
+    [
+        <Oct.Props.Stove>
+    ]
+
+	researchEntry = 
+	{
+		id Bakery.Research.Sandwich
+		type ResearchEntry
+    	inherit Oct.Research.Cooking.Base
+	
+		name = Sandwiches
+		prerequisite = <Bakery.Research.Bread>
+    	tooltipProvider = <Bakery.Recipes.Sandwich>
+		tierOffset = 0
+	}
+}
