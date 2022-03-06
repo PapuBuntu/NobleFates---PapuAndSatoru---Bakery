@@ -1,0 +1,127 @@
+{
+    abstract
+	id Bakery.Items.Sandwich
+	type MealStackedItemType
+	inherit Oct.Items.Stackable
+	
+    nameGrammar = <Oct.Items.Stackable.Meal.Name>
+	itemClass = MealStackedItem
+	category = <Oct.Items.Categories.Food.Meals>
+	stackLimit = 25
+    
+    serfsAllowed = false
+    prisonersAllowed = false
+    
+    cookable = false
+    
+    defectiveNoun = true
+	carryChance = .25
+	value = 50
+	dropSound = OrganicDrop
+
+    autonomousFilter = 
+    {
+        type ItemFilter
+        name = Meals
+        included =
+        [
+            <Bakery.Items.Sandwich.Simple>
+        ]
+    }
+    autonomousPerMember = 2
+	
+	prefab = 
+	{
+		type Prefab
+		path = /Assets/Sandwich.fbx
+		name = Sandwich
+        behavior = MealStackedItemBehavior
+	}
+	
+	consumableModifiers = 
+	[
+		{
+			type StackedConsumableStatModifier
+			name = Food
+			delta = 100
+		}
+	]
+}
+{
+	id Bakery.Items.Sandwich.Simple
+	type MealStackedItemType
+	inherit Bakery.Items.Sandwich
+	
+    name = Sandwich
+    rarity = <Oct.Items.Rarity.Uncommon>
+	itemClass = MealStackedItem
+	category = <Oct.Items.Categories.Food.Meals.Simple>
+    indoorDecayAfter = 8d
+	outdoorDecayAfter = 2d
+    importance = .75
+    moodBoost = .0625
+	
+	consumableModifiers = 
+	[
+		{
+			type StackedConsumableStatModifier
+			name = Comfort
+			delta = 6.25
+		}
+	]
+}
+{
+    id Bakery.Recipes.Sandwich
+	type MealRecipe
+	
+    type = <Bakery.Items.Sandwich.Simple>
+    ingredientCount = 2
+	researchEntry = <Bakery.Research.Sandwich>
+    commandType = CookItemCommand
+	craftingLoop = CookingLoop
+    canFilterIngredients = true
+	yield = 1
+    batch = 1
+
+	ingredients =
+	[
+		{
+			type NutritionRecipeIngredient
+			filter = 
+            {
+                type ItemFilter
+                name = Ingredients
+                included =
+                [
+                    <Oct.Items.Categories.Food.Meat>
+                ]
+                excluded =
+                [
+                    <Oct.Items.Categories.Food.Meals>
+                ]
+            }
+            sources = 1
+			nutrition = 1
+		}
+		{
+			type ItemRecipeIngredient
+			filter = <Bakery.Items.Bread>
+			count = 1
+		}
+	]
+
+    craftAt = 
+    [
+        <Oct.Props.Stove>
+    ]
+}
+{
+	id Bakery.Research.Sandwich
+	type ResearchEntry
+    inherit Oct.Research.Cooking.Base
+	
+	name = Sandwiches
+	prerequisite = <Bakery.Research.Bread>
+    tooltipProvider = <Bakery.Recipes.Sandwich>
+	tierOffset = 0
+}

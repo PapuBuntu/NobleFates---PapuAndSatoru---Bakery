@@ -120,7 +120,7 @@
 	name = Flour
 	description = Flour for bread
 	category = false
-	tierOffset = 3
-	prerequisite = <Bakery.Research.Bakery>
+	tierOffset = 0
+	prerequisite = <Bakery.Research.Wheat>
 	tooltipProvider = <Bakery.Recipes.Flour>
 }
