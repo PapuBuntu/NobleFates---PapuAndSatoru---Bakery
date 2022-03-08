@@ -59,3 +59,10 @@
         behavior = StackedItemBehavior
 	}
 }
+{
+    id Oct.Items.Stackable.Straw
+	type StackedFoodItemType
+
+    dropItemType = Wheat Seeds
+	dropItemChance = .04
+}
