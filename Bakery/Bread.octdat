@@ -111,7 +111,7 @@
 {
 	id Bakery.Research.Bread
 	type ResearchEntry
-    inherit Bakery.Research
+    inherit Bakery.Research.Cook
 	
 	name = Bread
 	prerequisite = <Bakery.Research.Flour>

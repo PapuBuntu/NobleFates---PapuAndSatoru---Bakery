@@ -3,6 +3,14 @@
     type ResearchEntry
     abstract
     
+    verb = to Build
+    skill = Building
+}
+{
+    id Bakery.Research.Craft
+    type ResearchEntry
+    abstract
+    
     verb = to Craft
     skill = Crafting
 }
@@ -13,6 +21,14 @@
 	
 	verb = to Grow
 	skill = Farming
+}
+{
+	id Bakery.Research.Cook
+	type ResearchEntry
+	abstract
+	
+	verb = to Cook
+	skill = Cooking
 }
 {
     id Bakery.Research.Bakery

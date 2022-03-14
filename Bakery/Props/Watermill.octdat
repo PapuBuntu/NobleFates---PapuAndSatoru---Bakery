@@ -33,9 +33,9 @@
 	repairItemFilter = <Oct.Items.Stackable.Wood>
 	researchEntry = <Bakery.Research.Watermill>
     
-    maxHealth = 100
-    progressMultiplier = .2
-    difficulty = .75
+    maxHealth = 300
+    progressMultiplier = .4
+    difficulty = .5
 
     facets = 
     [
