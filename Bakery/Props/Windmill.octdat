@@ -36,8 +36,8 @@
 	researchEntry = <Bakery.Research.Windmill>
     
 	maxHealth = 300
-    progressMultiplier = .2
-    difficulty = .75
+    progressMultiplier = .4
+    difficulty = .5
 
 	facets = 
     [

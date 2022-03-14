@@ -115,7 +115,7 @@
 {
 	id Bakery.Research.Flour
 	type ResearchEntry
-	inherit Bakery.Research
+	inherit Bakery.Research.Cook
 
 	name = Flour
 	description = Flour for bread
